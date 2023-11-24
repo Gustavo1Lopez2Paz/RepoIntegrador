@@ -1,48 +1,46 @@
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
-/**
- * @author Yael Gonzalez Calva
- */
-public class RectaPendiente {
-    /**
-     * @param args the command line arguments
-     */
-    public static double inclinacion(int x1, int y1, int x2, int y2){
-        double m = (y2 - y1)/(x2 - x1);
-        return m;
-    }
-    
-    public static double interseccionY(int x1,int y1, double m){
-        double b = y1 - m * x1;
-        return b;
-    }
-    
-    public static double angulo(double m){
-        double anguloRadianes = Math.atan(m);
-        double anguloGrados = anguloRadianes * (180/Math.PI);
-        return anguloGrados;
-    }
-    
+public class Recta {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        
-        System.out.println("Ingresa los valores de \"x\" y \"y\" del punto 1 separado por una coma (x,y):");
-        String[] puntoA = (in.nextLine()).split(",");
-        System.out.println("Ingresa los valores de \"x\" y \"y\" del punto 2 separado por una coma (x,y):");
-        String[] puntoB = (in.nextLine()).split(",");
-        
-        in.close();
-        
-        int x1 = Integer.parseInt(puntoA[0].trim());
-        int y1 = Integer.parseInt(puntoA[1].trim());
-        int x2 = Integer.parseInt(puntoB[0].trim());
-        int y2 = Integer.parseInt(puntoB[1].trim());
-        
-        Double m = inclinacion(x1, y1, x2, y2);
-        Double b = interseccionY(x1, y1, m); 
-        Double angulo = angulo(m);
-        
-        System.out.println("La pendiente de la recta es de= "+m+ "La interseccion de la recta es de= "+b);
-        System.out.println("El angulo de inclinacion es de= "+angulo+"°");
+        Scanner scanner = new Scanner(System.in);
+
+        // Obtener las coordenadas de los puntos A y B desde el usuario
+        System.out.println("Ingrese las coordenadas del punto A:");
+        System.out.print("x1: ");
+        double x1 = scanner.nextDouble();
+        System.out.print("y1: ");
+        double y1 = scanner.nextDouble();
+
+        System.out.println("Ingrese las coordenadas del punto B:");
+        System.out.print("x2: ");
+        double x2 = scanner.nextDouble();
+        System.out.print("y2: ");
+        double y2 = scanner.nextDouble();
+
+        scanner.close();
+
+        // Cálculo de la pendiente de la recta
+        double pendiente = (y2 - y1) / (x2 - x1);
+
+        // Cálculo del ángulo en radianes
+        double angulo = Math.atan(pendiente);
+
+        // Conversión del ángulo a grados
+        double anguloGrados = Math.toDegrees(angulo);
+
+        // Cálculo del punto de intersección
+        double interseccionX = (y1 - y2) / (pendiente);
+        double interseccionY = y1 - pendiente * x1;
+
+        // Formateo del ángulo con dos decimales
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        String anguloFormateado = decimalFormat.format(anguloGrados);
+
+        // Imprimir la ecuación de la recta, punto de intersección, ángulo de inclinación y pendiente
+        System.out.println("Ecuación de la recta: y = " + pendiente + "x + " + interseccionY);
+        System.out.println("Punto de intersección: (" + interseccionX + ", " + interseccionY + ")");
+        System.out.println("Ángulo de inclinación α: " + anguloFormateado + " grados");
+        System.out.println("Pendiente: " + pendiente);
     }
 }
