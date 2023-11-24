@@ -1,4 +1,0 @@
-# Repositorio del Integrador
-[Repo] (git@github.com:Gustavo1Lopez2Paz/RepoIntegrador.git)
-#Ejercicio 1
-Dados 2 puntos A y B con coordenadas x1,y1 y x2,y2 respectivamente. Regresar la ecuación de la recta y el ángulo interno α que se forma entre el eje horizontal y la recta.
