@@ -4,14 +4,14 @@ import java.util.Scanner;
 class HelloWorld {
     public static void main(String[] args) {
         
-        
+        //ENTRADA
         Scanner in = new Scanner(System.in);
         
         System.out.println("Ingresa un numero binario");
         String numeroBin = in.nextLine();
         int longitud = numeroBin.length();
         int numeroDecimal = 0;
-        
+        //PROCESO
         for (int i = 0; i < longitud; i++) {
             
             char digito = numeroBin.charAt(i);
@@ -26,6 +26,7 @@ class HelloWorld {
                 return;
             }
         }
+        //SALIDA
         System.out.println("El numero decimal equivalente es " + numeroDecimal);
         
     
