@@ -1,0 +1,1 @@
+# En esta carpeta se encuentran las soluciones de los problemas asignados a cada integrante. Estos contienen el diagrama de flujo y la solución en código de Java.

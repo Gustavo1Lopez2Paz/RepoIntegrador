@@ -1,0 +1,1 @@
+# En esta carpeta se encuentra el manuscrito trabajado en el lenguaje LaTeX con archivos externos que      contienen la descripción de los problemas asignados y sus soluciones. Además, contiene la carpeta de imágenes que se utilizaron en el documento. Por último, se añadió el documento final en formato PDF.
