@@ -1,0 +1,257 @@
+\documentclass[conference]{IEEEtran}
+\renewcommand\IEEEkeywordsname{Palabras clave:}
+\IEEEoverridecommandlockouts
+\usepackage[utf8]{inputenc}                   % Para escribir tildes y eñes
+\usepackage[spanish]{babel}                   % Para que los títulos de figuras, tablas y otros estén en español
+
+
+%cargar plantilla
+
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+%cargar paquetes(usepackage)
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{listings}
+
+%sangria y margenes de la hoja
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+   
+
+
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}					% Cambiar nombre a tablas
+\addto\captionsspanish{\renewcommand{\listtablename}{Índice de tablas}}		% Cambiar nombre a lista de tablas
+\usepackage{geometry}                         
+\geometry{left=18mm,right=18mm,top=21mm,bottom=21mm} % Tamaño del área de escritura de la página
+\usepackage{ucs}
+\usepackage{amsmath}      % Los paquetes ams son desarrollados por la American Mathematical Society
+\usepackage{amsfonts}     % y mejoran la escritura de fórmulas y símbolos matemáticos.
+\usepackage{amssymb}
+\usepackage{graphicx}     % Para insertar gráficas
+\usepackage[lofdepth,lotdepth]{subfig}	% Para colocar varias figuras
+\usepackage{unitsdef}	  % Para la presentación correcta de unidades
+\usepackage{pdfpages}   %incluir paginas de pdf externo, para los anexos
+\usepackage{appendix}   %para los anexos
+\renewcommand{\unitvaluesep}{\hspace*{4pt}}	% Redimensionamiento del espacio entre magnitud y unidad
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black,citecolor=black]{hyperref}     % Para insertar hipervínculos y marcadores
+\usepackage{float}		% Para ubicar las tablas y figuras justo después del texto
+\usepackage{booktabs}	% Para hacer tablas más estilizadas
+\batchmode
+\bibliographystyle{plain} 
+\pagestyle{plain} 
+\pagenumbering{arabic}
+\usepackage{lastpage}
+\usepackage{fancyhdr}	% Para manejar los encabezados y pies de página
+\pagestyle{fancy}		% Contenido de los encabezados y pies de pagina
+\usepackage{multicol}   % Para varias columnas
+
+\lhead{Ing. Tecnologías de la Información y Comunicaciones}
+\rhead{Proyecto Integrador} 
+\lfoot{ITICS}
+\cfoot{\thepage\ de \pageref{LastPage}}
+\rfoot{ITSOEH}
+
+%sangria y margenes de la hoja
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+    
+\begin{document}%inicio del documento
+
+%plantilla imprimir codigo Java
+\lstnewenvironment{javaCode}[1][]
+{\lstset{
+    language=Java,
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=5pt,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{purple},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=4,
+    showspaces=false,
+    showstringspaces=false,
+    frame=single,
+    captionpos=b,
+    #1
+}}
+{}
+
+% --- Datos de la práctica y de los alumnos  ------
+
+\title{
+\includegraphics[width=6cm]{imagen/LOGO-SEP.png}\includegraphics[width=5cm]{imagen/TECNM.png}\includegraphics[width=4.5cm]{imagen/ITSOEH logo.png}\includegraphics[width=5cm]{imagen/Flag_of_Hidalgo.svg.png}
+\\ \vspace*{0.6cm} {\Large Instituto Tecnológico Superior del Occidente del Estado de Hidalgo} \\
+  \vspace*{0.2cm}
+  \Large Ingeniería en Tecnologías de la Información y Comunicaciones  \\  
+  \vspace*{0.5cm}  
+  {\it \huge Proyecto Integrador} \\
+  {\normalsize Software de resolución de problemas de ingeniería}\\
+  {\vspace{1cm} \large \textbf{Coordinador del proyecto:}\\ Dr. Francisco Javier Cuadros Romero}\\
+  \vspace{1cm}
+  {\large \textbf{Integrantes del equipo:}}
+  \vspace{0.5cm}
+  }
+%titulo del docuemento
+
+\author
+{\IEEEauthorblockN{1\textsuperscript{er} Cedillo Ramírez Jesús Emmanuel}
+\IEEEauthorblockA{\textit{Estudiante de ITIC´s} \\
+\textit{ITSOEH}\\
+Progreso de Obregón, HGO. \\
+230110478@itsoeh.edu.mx}
+\and
+
+\IEEEauthorblockN{2\textsuperscript{do} Gómez Ángeles Evelin}
+\IEEEauthorblockA{\textit{Estudiante de ITIC´s} \\
+\textit{ITSOEH}\\
+Tezontepec de Aldama, HGO. \\
+230110617@itsoeh.edu.mx}
+\and
+
+\IEEEauthorblockN{3\textsuperscript{er} Gonzaga López Luis Fernando}
+\IEEEauthorblockA{\textit{Estudiante de ITIC´s} \\
+\textit{ITSOEH}\\
+Tlahuelilpan, HGO. \\
+230110528@itsoeh.edu.mx}
+\and
+
+\IEEEauthorblockN{4\textsuperscript{to} González Calva Yael}
+\IEEEauthorblockA{\textit{Estudiante de ITIC´s} \\
+\textit{ITSOEH}\\
+Progreso de Obregón, HGO. \\
+230110582@itsoeh.edu.mx}
+\and
+
+\IEEEauthorblockN{5\textsuperscript{to} Jarquín Contreras Kevin Ichiro}
+\IEEEauthorblockA{\textit{Estudiante de ITIC´s} \\
+\textit{ITSOEH}\\
+Mixquiahuala, HGO. \\
+230110949@itsoeh.edu.mx}
+\and
+
+\IEEEauthorblockN{6\textsuperscript{to} López Paz Gustavo}
+\IEEEauthorblockA{\textit{Estudiante de ITIC´s} \\
+\textit{ITSOEH}\\
+Progreso de Obregón, HGO. \\
+230110531@itsoeh.edu.mx}
+
+}
+\vspace{2cm}
+\maketitle%termina el titulo
+\clearpage
+\onecolumn
+\tableofcontents
+
+\clearpage
+\twocolumn
+\begin{abstract}
+    Pasado el tiempo desde inicio de semestre Agosto-Diciembre 2023, se han abarcado diferentes temas aprendidos con diferentes metodologías correspondientes a cada uno de los docentes de las siete materias que contiene el primer semestre de ingeniería en Tecnologías de la Información y Comunicaciones, dentro de estos temas se escogieron tres problemas de Cálculo Diferencial y tres problemas de Matemáticas Discretas, desarrollándolos con conocimientos adquiridos en Fundamentos de Programación, y subiendo la solución de estos mismos en un repositorio de GitHub, y haciendo el siguiente informe con el proceso de solución de cada uno de los ejercicios, resueltos con uso de la metodología de las 6D's.
+\end{abstract}
+
+\begin{IEEEkeywords}
+    Matemáticas, conocimientos, problemas, solución, metodología.
+\end{IEEEkeywords}
+
+\section{Introducción}
+En el siguiente documento se presentan seis problemas de primer semestre de ingeniería: el primero de ellos es encontrar la ecuación de la recta dados dos puntos en el plano cartesiano $(x_1, y_1)$ y $(x_2, y_2)$, obteniendo la pendiente m que se define como $ m = (y_2 - y_1)/(x_2 - x_1) $ para arrojar el resultado de la ecuación de la recta de la forma $ y= m x + b $ donde b es el punto de intersección con el eje y; el segundo problema es encontrar el valor de las raíces de una ecuación cuadrática o ecuación de segundo grado de la forma $ ax^2 +bx + c = 0 $, por medio de la fórmula general que se define como $ x = (-b\pm \sqrt{b^2-4ac})/(2a) $ donde $a, b y c$ son los coeficientes que acompañan a la ecuación cuadrática; el tercer problema es arrojar si un punto dado del plano cartesiano está dentro o fuera de una circunferencia con centro fuera del origen comparando el valor del radio de la circunferencia y la distancia que hay entre el punto dado con el punto que marca el centro de la circunferencia, esta distancia la encontraremos con la fórmula de distancia entre dos puntos en el plano cartesiano que se define como $d=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$, y así de esta manera resolver este problema; el cuarto problema es encontrar el número binario correspondiente a un número decimal dado por el usuario el cual tiene un método de división sucesiva para encontrar el binario del decimal; el quinto problema es inverso al problema anterior el cual consiste en encontrar el valor en numeración decimal de un número binario dado por el usuario, usando un método de potenciación de base dos y exponente con valor de posición del dígito del número binario comenzando de derecha a izquierda, por muy similar que se noten estos dos últimos problemas tienen una metodología diferente para su solución; el sexto y último problema consiste en encontrar una expresión booleana que genere las salidas en una tabla de $n$ bits, donde $n$ será el valor dado por el usuario.\\
+
+Estos seis problemas mencionados brevemente fueron analizados y resueltos con una metodología en común que es la metodología de las 6D's: Definición del problema, donde mencionamos información acerca del tema que contiene el problema; Descripción del problema, donde solo hacemos mención del problema a resolver; Diseño de solución, donde se hace un análisis de como resolver el problema y dar la matemática que contiene cada uno de estos; Desarrollo de solución, donde se da a detalle y por paso la solución de estos agregando el código hecho en lenguaje de programación JAVA; Depuración y pruebas, donde se agregan tablas de corrida del código con datos dados por el usuario y el dato arrojado por el programa; y Documentación, la cual consiste en el siguiente informe.
+
+
+\section{Objetivos}
+\subsection{Objetivo General}
+\begin{itemize}
+    \item Desarrollar un software en lenguaje JAVA para la solución útil y precisa de problemas matemáticos y de ingeniería, que permita a los usuarios realizar cálculos y análisis numéricos de manera efectiva.
+\end{itemize}
+
+\subsection{Objetivos específicos}
+\begin{enumerate}
+    \item Comprender la ecuación de la recta, la fórmula general y la distancia entre dos puntos, para resolver problemas matemáticos relacionados con el álgebra y geometría, y aplicados a la ingeniería.
+    \item Comprender y aplicar los métodos de conversión de numeración binaria a numeración decimal, y viceversa.
+    \item Aplicar los conceptos de tablas de verdad para analizar expresiones lógicas.
+\end{enumerate}
+
+\input{Ex1}
+
+\input{Ex2}
+
+\input{Ex3}
+
+\input{Ex4}
+
+\input{Ex5}
+
+\input{Ex6} 
+
+\clearpage
+\section{Conclusión}
+Con cada uno de los problemas que se resolvieron, se logró una mejor capacitación en distintas áreas como el uso del cálculo diferencial, las búsquedas con números binarios y encontrar sus expresiones booleanas, así como principalmente se desarrolló una mejor comprensión de como poder trabajar en estas áreas con el uso de la programación y mejorar una mejor lógica de desarrollo, al igual de como poder incluir herramientas para trabajar de una manera remota y muy eficiente para poder trabajar mejor en equipo.
+
+\section{Agradecimientos}
+ Como equipo mostramos nuestro agradecimiento a cada uno de nuestros docentes de cada una de las materias que contiene el primer semestre de Ingeniería  en Tecnologías de la Información y Comunicaciones, específicamente al \textbf{Mtro. José Martín Oropeza Méndez} quien con entusiasmo nos impartió la asignatura de Matemáticas Discretas I, al \textbf{Ing. Giovany Humberto Neri Pérez} quien con sus conocimientos en matemáticas nos impartió la asignatura de Calculo Diferencial, a la \textbf{Mtra. Silvia Sánchez Bautista} quien con alegría nos impartió la asignatura de Ética, a la \textbf{Lic. Irais López Rojo} quien con su aprendizaje en enseñanza de la segunda lengua nos impartió la asignatura de Inglés I, al \textbf{LSC. Agustín Soto Arista} quien nos ayudó a tener un mejor lenguaje y nos impartió la asignatura de Fundamentos de Investigación, al \textbf{Dr. Francisco Javier Cuadros Romero} quien con mucho conocimiento y clases divertidas nos impartió la asignatura de Introducción a las TIC's, y especialmente agradecidos con la \textbf{MGTI. Citlali Azucena Martínez Calva} quien es tutora de nuestro primer semestre en la carrera y, con sus conocimientos y apoyo extra-clase nos impartió la asignatura de Fundamentos de Programación.\\
+ Agradecidos con nuestros padres y amigos que nos apoyaron durante la realización de este proyecto.\\
+ Gracias a todos.
+
+\begin{thebibliography}{00}
+    \bibitem{articuloRecta} 
+    Khan Academy, October 20, 2023, Tangent lines and rates of change, https://www.khanacademy.org/math/calculus-all-old/taking-derivatives-calc/using-the-formal-definition-of-derivative-calc/a/tangent-lines-and-rates-of-change.\\
+    
+    \bibitem{FormulaCuadratica}
+    Tutorela. (2021, 16 noviembre). La fórmula cuadrática. Tutorela. https://www.tutorela.es/matematicas/la-formula-cuadratica\\
+    
+    \bibitem{Circunferencia}
+    Gómez, I. P. Y. F. (2019, 29 junio). Ecuación de la circunferencia - [Ordinaria y general. ¡Ejercicios resueltos!]. Álgebra y Geometría Analítica. https://aga.frba.utn.edu.ar/circunferencia/\\
+
+    \bibitem{SistemaDecimal}
+    Porto, J. P., & Merino, M. (2021, 26 agosto). Sistema decimal - qué es, definición, importancia y clasificación. Definición.de. https://definicion.de/sistema-decimal/\\
+
+    \bibitem{SistemaBinario}
+    Equipo editorial, Etecé. (2022, 2 febrero). Sistema binario - qué es, concepto, aplicaciones y ejercicios. Concepto. https://concepto.de/sistema-binario/\\
+
+    \bibitem{TablasdeVerdad}
+    Machado, D. (2023, 4 noviembre). Cómo hacer tablas de verdad: ejercicios resueltos. Flamath. https://flamath.com/tablas-de-verdad\\
+
+\end{thebibliography}
+\\
+
+\section{Integrantes}
+\subsection{\textbf{Cedillo Ramírez Jesús Emmanuel}}
+Un estudiante de ingeniería que desconoce muchos temas de programación pero que muestra interés en poder aprender diversos temas sobre la programación. Nacido en el municipio de Ixmiquilpan, Hgo, con gustos musicales muy diversos, desde pequeño demostró un interés en temas relacionados con audio, actualmente se encuentra estudiando la carrera de Tecnologías de la Información y Comunicación en el Instituto Superior del Occidente del Estado de Hidalgo, en la cual le ha surgido el interés por el tema de ciberseguridad.
+
+\href{https://github.com/EmmanuelCR23}{GitHub de Emmanuel}\\
+
+\subsection{\textbf{Gómez Ángeles Evelin}}
+Una estudiante de ingeniería emocionada por aprender de tecnología y todo lo relacionado con ella. Sus intereses radican en aprender más sobre las diferentes tecnologías y sus aplicaciones en el mundo actual, además de que aspira a adquirir nuevas habilidades de programación para poder diseñar y desarrollar una aplicación que sea útil y beneficie a las personas.
+
+\href{https://github.com/EvelinAngeles06}{GitHub de Evelin}\\
+
+\subsection{\textbf{Gonzaga López Luis Fernando}}
+Un estudiante de ingeniería apasionado por la ciencia, la tecnología y las matemáticas. Abierto a diferentes gustos musicales. Nacido en el municipio de Tlaxcoapan, Hgo. y actualmente viviendo en el municipio de Tlahuelilpan, Hgo. Desde la niñez mostró interés en computadoras y en resolver problemas matemáticos. Es jugador de baloncesto desde los 10 años. Sus principales principios como persona son la lealtad y la perseverancia. El principal objetivo de Fernando actualmente es completar sus estudios de nivel superior que actualmente está haciendo en el Instituto Tecnológico Superior del Occidente del Estado de Hidalgo en el municipio de Mixquiahuala de Juárez, Hgo.
+
+\href{https://github.com/FerGonzaga}{GitHub de Fernando}\\
+
+\subsection{\textbf{González Calva Yael}}
+Un estudiante de Ingeniería que recientemente ha empezado con cariño a la tecnología que se esfuerza por aprender y de apoyar a sus compañeros cuando lo requieran. Nacido en Francisco I. Madero, Hgo. Cuando era pequeño siempre tuvo el amor hacia el deporte, practicando fútbol y baloncesto a la edad de 9 años, de pocos amigos pero muy buenas personas. Actualmente esta estudiando en el Instituto Superior del Occidente del Estado de Hidalgo, su plan en mente es terminar la carrera y adquirir buenas habilidades para desenvolverse de gran manera en el ámbito laboral. 
+
+\href{https://github.com/YaelDoncic}{GitHub de Yael}\\
+
+\subsection{\textbf{Jarquín Contreras Kevin Ichiro}}
+
+Un estudiante que creció en Mixquiahuala, Hgo. parte de su vida, que tiene un interés por las nuevas tecnologías y el funcionamiento de ellas, por el momento trato de enterder el funcionamiento de eso por eso estudio esta ingeniería en el Instituto Tecnológico Superior del Occidente del Estado de Hidalgo , por el momento tiene una meta en esta carrera y es crear una inteligencia artificial para después de eso poder trabajar de lo que estudia, para esto falta mucho, por el momento tendrá que enfocarse en el ahora para poder lograr sus objetivos a corto y largo plazo.
+
+\href{https://github.com/ichirocontreras}{Github de Ichiro}\\
+
+\subsection{\textbf{López Paz Gustavo}}
+Un estudiante que creció en Progreso de Obregón, Hgo. Desde pequeño paso por varios problemas de salud que enfrentar pero con apoyo de sus padres logro salir de ellos, en ese transcurso empezó a tomar cariño de algunos deportes como fútbol y el culturismo, al igual ser curioso con la tecnología que vivía en su alrededor. Con el transcurso del tiempo empezó a aprender por su cuenta programación básica y otras herramientas para trabajar. Hoy ahora que estudia en el Instituto Superior del Occidente del Estado de Hidalgo, en la ingeniería en Tecnologías de la Información y Comunicación, donde también se ha interesado en conocer Internet de las cosas y el manejo de Redes.
+
+\href{https://github.com/Gustavo1Lopez2Paz}{Github de Gustavo}\\
+
+\end{document}

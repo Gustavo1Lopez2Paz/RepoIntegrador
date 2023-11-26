@@ -1,0 +1,56 @@
+\subsection{Conversión decimal a binario}
+
+\subsubsection{Definición del problema}
+El sistema decimal, es un sistema de numeración posicional en el que las cantidades se representan utilizando como base el número diez, por lo que se compone de diez dígitos diferentes: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9.
+El valor de cada dígito está asociado a la posición que ocupa: unidades, decenas, centenas, millares, etc. 
+Un sistema binario utiliza sólo dos dígitos: 0 y 1. El valor de cada posición se obtiene de una potencia de base dos, elevada a un exponente igual a la posición del dígito menos uno.\cite{SistemaDecimal}\\
+\subsubsection{Descripción del Problema}
+Dado un número decimal entero positivo o negativo regresar su equivalente en binario.
+\subsubsection{Diseño de solución}
+Para darle solución a este problema de un número entero decimal a binario, se debe utilizar el método de división sucesiva. Este método consiste en dividir el número decimal entre 2 y anotar el residuo. Luego, se divide el cociente obtenido entre 2 y se anota el nuevo residuo. Este proceso se repite hasta obtener un cociente igual a 0. Los residuos obtenidos, leídos de abajo hacia arriba, forman la representación binaria del número decimal. Desarrollando un código en Java, en donde el usuario ingrese un número entero decimal y obtenga como resultado su número binario.
+\subsubsection{Desarrollo de la solución}
+\begin{enumerate}
+    \item En el programa que se desarrolló en Java, el usuario tiene que ingresar un número entero decimal positivo siendo este el valor primordial para que se lleve a cabo la conversión a binario.
+    \begin{javaCode}
+        System.out.println("Ingrese un número entero decimal positivo");
+        int númeroDecimal=entrada.nextInt();
+    \end{javaCode}
+    \item Se utiliza la estructura en cascada, en dónde se verifica si el número no es negativo e inicializa una cadena para almacenar el número binario y si el número decimal es igual a 0, se asigna "0" a la variable número binario.
+    En caso de que el número no sea negativo, se utiliza un bucle while para convertir el número decimal a su representación binaria. Se calcula el residuo de la división del número decimal entre 2 y se guarda en la variable residuo. Se concatena el residuo al inicio de la cadena número binario y después se divide el número decimal entre 2 y se actualiza el valor de número decimal. Finalmente se imprime el número binario resultante.\\
+    \begin{javaCode}
+       if (númeroDecimal<0) {
+       System.out.println("El número debe ser entero no negativo");
+       return;
+       }
+       String númeroBinario="";
+       if (númeroDecimal==0) {
+           númeroBinario="0";
+        } else {
+        while (númeroDecimal>0) {
+        int residuo=númeroDecimal%2;
+        númeroBinario=residuo+númeroBinario;
+        númeroDecimal=númeroDecimal/2; 
+        }
+        }
+        System.out.println("El número binario equivalente es:" + númeroBinario);
+        
+    \end{javaCode}
+    \item Por lo tanto, obtenemos el resultado de la conversión de el número entero decimal en binario.
+\end{enumerate}
+\subsubsection{Depuración y pruebas}
+A continuación en la tabla 4 se muestran resultados arrojados por el código.
+\begin{table}[!ht]
+\label{T:equipos}
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c |}
+\hline
+\textbf{Número} & \textbf{Número decimal} & \textbf{Número binario}\\
+\hline
+1 & 222 & 11011110 \\
+2 & 338 & 101010010 \\
+3 & 110 & 1101110 \\
+\hline
+\end{tabular}
+\caption{Tabla de corridas.}
+\end{center}
+\end{table}\\

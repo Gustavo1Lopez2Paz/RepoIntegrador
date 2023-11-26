@@ -1,0 +1,96 @@
+\subsection{Raíces de una ecuación cuadrática}
+
+\subsubsection{Definición del problema}
+La ecuación cuadrática o fórmula cuadrática es utilizada para encontrar las raíces de una ecuación cuadrática de la forma $ax^{2}+bx+c = 0$, la fórmula se compone por 3 parámetros:
+\begin{enumerate}
+    \item Parámetro ${a}$: Representa la posición del vértice de la parábola en el eje ${Y}$.
+    \item Parámetro ${b}$: Representa la posición del vértice en la parábola del eje ${X}$.
+    \item Parámetro ${c}$: Representa el punto de intersección de la parábola con el eje ${Y}$.
+\end{enumerate}
+El uso de esta fórmula es útil cuando se requiere resolver alguna ecuación cuadrática que ya se intentó resolver por distintos métodos o por medio de la factorización, por ello la formula cuadrática es la siguiente:
+\begin{equation}
+    x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}
+\end{equation}
+En esta fórmula se toma en cuenta el discriminante que es representado en la fórmula por $b^2-4ac$, el cual determina la naturaleza y el número de soluciones de la ecuación, analizando las propiedades de una ecuación cuadrática y determinar su comportamiento de soluciones reales.\cite{FormulaCuadratica}\\
+
+\begin{figure}[H]
+    \centerline{\includegraphics[width= 6cm]{imagen/GráficaFormulaCuadrática.png}}
+    \caption{Gráfica de la fórmula cuadrática}
+    \label{fig}
+\end{figure}
+
+\subsubsection{Descripción del Problema}
+Se solicita al usuario que ingrese los tres parámetros $a$, $b$, y $c$, donde estos se evaluarán en un discriminante el cual es $b^2-4ac$, y que al final dependiendo de este se resuelva el resto de la operación de esta fórmula.
+
+\subsubsection{Definición de la solución}
+Para tener solución a este problema se consideran 3 posibles respuestas que dependen del discriminante, las cuales son:
+\begin{enumerate}
+    \item La ecuación tiene dos soluciones sobre el conjunto de los números reales, $x_1$ y $x_2$.
+    \item La ecuación solo tiene una solución en el conjunto de los números reales, $x$.
+    \item La ecuación no tiene una solución en el conjunto de los números reales, esta se encuentra en el conjunto de los números complejos.
+\end{enumerate}
+
+\subsubsection{Diseño de la solución}
+Para resolver este problema se requiere que el programa reciba 3 coeficientes de tres parámetros que vendrán de la ecuación cuadrática que se tenga, donde primero se establece el desarrollo del discriminante y por consiguiente la evaluación del discriminante donde determinará si existen dos soluciones, una solución o solución en el conjunto de los complejos.
+
+\subsubsection{Desarrollo de la solución}
+
+\begin{enumerate}
+    \item La solución a este problema se diseño un programa el cual se tendrá que ingresar los 3 coeficientes de los parámetros denominados de $a$, $b$, y $c$ para resolver la fórmula cuadrática.
+    
+    
+    \begin{javaCode}
+    
+        System.out.println("Ingrese el parámetro de a de la ecuación cuadrática");
+            double a = in.nextDouble();
+            System.out.println("Ingrese el parámetro de b de la ecuación cuadrática");
+            double b = in.nextDouble();
+            System.out.println("Ingrese el parámetro de c de la ecuación cuadrática");
+            double c = in.nextDouble();
+            
+    \end{javaCode}
+    
+    \item Por consiguiente primero se resolverá el discriminante, donde el resto de las operaciones de la fámula cuadrática dependerá de este resultado.
+    
+    \begin{javaCode}
+        double discriminante = (Math.pow(b, 2)) - (4*a*c);3
+    \end{javaCode}
+    
+    \item Por último, si el discriminante pasa por la primer condición, se obtendrán 2 soluciones, la segunda condición solo tiene una solución, en caso contrario de todo, no hay una solución posible.
+    
+    \begin{javaCode}
+        if (discriminante > 0) {
+                double x1 = (-b + Math.sqrt(discriminante)) / (2 * a);
+                double x2 = (-b - Math.sqrt(discriminante)) / (2 * a);
+                
+                System.out.println("La ecuacion tiene dos soluciones sobre el conjunto de los números reales: \nx1 = "+x1+"\nx2 = "+x2);
+            } else {
+                if (discriminante==0) {
+                    double x = -b/(2*a);
+                    System.out.println("La ecuación solo tiene una solución sobre el conjunto de los números reales: \nx = "+x);
+                } else {
+                    System.out.println("La ecuación no tiene una solución en el conjunto de los números reales,esta se encuentra en los números complejos");
+                }
+            }
+    \end{javaCode}
+\end{enumerate}
+\subsubsection{Depuración y pruebas}
+En la tabla II se muestran los resultados obtenidos al compilar el código.
+\vspace{0.8cm}
+\begin{table}[!ht]
+\label{T:equipos}
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c |}
+\hline
+\textbf{$a$} & \textbf{$b$} & \textbf{$c$} & \textbf{$x_1,x_2$ o $x$}\\
+\hline
+2 & 10 & 2 & -0.20, -4.79 \\
+3 & 4 & 6 & "solución en los números complejos" \\
+-5 & 6 & -1 & 0.2,  1.0 \\
+7 & 4 & 10 & "solución en los números complejos" \\
+1 & -4 & 4 & 2 \\
+\hline
+\end{tabular}
+\caption{Tabla de corridas.}
+\end{center}
+\end{table}\\

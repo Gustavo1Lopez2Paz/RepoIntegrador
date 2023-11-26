@@ -1,0 +1,91 @@
+\subsection{Punto dada una circunferencia}
+
+\subsubsection{Definición del problema}
+La circunferencia es el lugar geométrico de los puntos del plano que equidistan de un punto fijo llamado centro (C) con coordenadas:
+$$C:(x,y)$$
+Esta contiene un elemento llamado radio (r) el cual se define como la línea que une el centro con cualquier punto de la circunferencia. La magnitud del radio determinará que tanto se abrirá la circunferencia.\cite{Circunferencia}\\
+
+\subsubsection{Descripción del problema}
+Dada una circunferencia con centro en el punto $C$ con coordenadas $(x_1, y_1)$ y radio $r$, evaluar si un punto $T$ con coordenadas $(x_2, y_2)$ está dentro de la circunferencia.\\
+
+\subsubsection{Diseño de solución}
+Para darle solución a este problema se analizaron los casos que pueden ocurrir dentro de este, encontrando tres casos diferentes:
+\begin{enumerate}
+    \item El punto T se encuentra dentro de la circunferencia.
+    \item El punto T se encuentra fuera de la circunferencia.
+    \item El punto T se encuentra sobre la circunferencia.
+\end{enumerate}
+Para determinar cual de los tres casos se cumplen se tiene que encontrar primero la distancia que hay entre el centro de la circunferencia y el punto T.\\
+Usando la fórmula para la distancia $d$ entre dos puntos en el plano cartesiano que se define como:
+\begin{equation}
+    d = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}
+\end{equation}
+Con la ecuación 5 encontramos la magnitud entre el punto T y el centro de la circunferencia.\\
+Se hace la comparación entre la distancia $d$ que hay entre ambos puntos, con el valor del radio de la circunferencia:
+\begin{enumerate}
+    \item Si d > r entonces el punto T se encuentra fuera de la circunferencia.
+    \item Si d < r entonces el punto T se encuentra dentro de la circunferencia.
+    \item Si d = r entonces el punto T se encuentra sobre la misma circunferencia.
+\end{enumerate}
+Con esto entendido se procede a desarrollar la solución en lenguaje de programación Java.\\
+
+\subsubsection{Desarrollo de la solución}
+\begin{enumerate}
+    \item Se le solicita al usuario las coordenadas en x y en y del centro de la circunferencia.
+    \begin{javaCode}
+        System.out.println("Ingrese el valor de la coordenada en x del centro de la circunferencia: ");
+        double Cx = entrada.nextDouble();
+        System.out.println("Ingrese el valor de la coordenada en y del centro de la circunferencia: ");
+        double Cy = entrada.nextDouble();
+    \end{javaCode}
+    \item Se le solicita al usuario los valores de las coordenadas en x y en y del punto T a evaluar.
+    \begin{javaCode}
+        System.out.println("Ingrese el valor de la coordenada en x del punto T: ");
+        double Tx = entrada.nextDouble();
+        System.out.println("Ingrese el valor de la coordenada en y del punto T: ");
+        double Ty = entrada.nextDouble();
+    \end{javaCode}
+    \item Se le solicita al usuario el valor del radio de la circunferencia.
+    \begin{javaCode}
+        System.out.println("Ingrese el valor del radio de la circunferencia");
+        double r = entrada.nextDouble();
+    \end{javaCode}
+    \item Se procesa la información ingresada por el usuario para obtener la distancia entre el centro de la circunferencia y el punto T.
+    \begin{javaCode}
+        double v1 = Math.pow((Tx-Cx), 2);
+        double v2 = Math.pow((Ty-Cy), 2);
+        double v3 = v1+v2;
+        double d = Math.sqrt(v3);
+    \end{javaCode}
+    \item Se compara la distancia obtenida con el radio, haciendo uso del if, else if y else para saber que caso ocurre e imprimirlo al usuario.
+    \begin{javaCode}
+        if (d>r){
+            System.out.println("El punto T con coordenadas ("+Tx+", "+Ty+") se encuentra fuera de la circunferencia con centro en ("+Cx+", "+Cy+") y radio "+r);
+        }else if (d<r){
+            System.out.println("El punto T con coordenadas ("+Tx+", "+Ty+") se encuentra dentro de la circunferencia con centro en ("+Cx+", "+Cy+") y radio "+r);
+        }else if (d==r){
+            System.out.println("El punto T con coordenadas ("+Tx+", "+Ty+") se encuentra sobre la circunferencia con centro en ("+Cx+", "+Cy+") y radio "+r);
+        }
+    \end{javaCode}
+\end{enumerate}
+
+\subsubsection{Depuración y pruebas}
+A continuación, en la tabla II se muestran los resultados de prueba al compilar el código.\\
+
+\begin{table}[!ht]
+\label{T:equipos}
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c |}
+\hline
+\textbf{$C_x$} & \textbf{$C_y$} & \textbf{$T_x$} & \textbf{$T_y$} & \textbf{$r$} & \textbf{Fuera/Dentro/Sobre}\\
+\hline
+4 & 4 & 5 & 5 & 1 & Fuera \\
+3 & 4 & 6 & 8 & 5 & Sobre \\
+-5 & 6 & -1 & 2 & 15 & Dentro \\
+0 & 0 & 0 & 5 & 5 & Sobre\\
+3 & 7 & 9 & 2 & 6 & Dentro\\
+\hline
+\end{tabular}
+\caption{Tabla de corridas.}
+\end{center}
+\end{table}

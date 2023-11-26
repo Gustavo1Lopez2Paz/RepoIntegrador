@@ -1,0 +1,121 @@
+\subsection{Tabla de verdad usando el teorema booleano}
+
+\subsubsection{Definición del problema}
+Las tablas de verdad son instrumentos de la lógica que permiten conocer los valores de verdad de proposiciones compuestas teniendo en cuenta las posibles interpretaciones de las proposiciones simples que la conforman.
+Algo que tener en cuenta es que el número de filas de la tabla de verdad será igual a $2^n$ más la cabecera, donde n es el número de proposiciones simples (que podemos llamar variables). Los pasos para crear la tabla podemos resumirlos así:
+\begin{enumerate}
+    \item Calcular el número de filas que tendrá la tabla de verdad. Este es igual a $2^n$ más la cabecera, donde n es el número de proposiciones simples.
+    \item Calcular el número de columnas que tendrá la tabla. Este es igual a el número de proposiciones simples más la cantidad de conectores lógicos que aparecen en la expresión, contando cada repetición de ellos.
+    \item Desglosar la proposición compuesta en la cabecera teniendo en cuenta la jerarquía de los conectores. En las primeras columnas irán las proposiciones simples y en la última irá la proposición original.
+    \item Escribir en las filas todas las posibles interpretaciones de las proposiciones simples. Por ejemplo, si se trata de dos proposiciones, existen cuatro interpretaciones posibles, lo veremos más adelante con los ejemplos.
+    \item Completar el resto de la tabla teniendo en cuenta las tablas de verdad de los conectores lógicos. La última columna, la de la proposición original que analizamos, nos dirá su valor de verdad de acuerdo a las posibles interpretaciones. \cite{TablasdeVerdad}
+\end{enumerate}
+\subsubsection{Descripción del problema}
+Dada una tabla de verdad de "n" bits generar la expresión booleana que genere de manera fidedigna las salidas de esta tabla.
+
+\subsubsection {Diseño de solución}
+
+Este sistema consolida los valores de verdad de todas las combinaciones de premisas y operadores lógicos en un solo lugar en columna. De esta manera, evita que tengas que “calcular” manualmente la conclusión de premisas falsas y verdaderas, muestran todos los posibles escenarios y condiciones de valores de entrada para una operación lógica y su resultado correspondiente, normalmente se utilizan los valores 1 y 0 donde 1 es verdadero y 0 es falso. 
+\\
+Su función base es mostrar cómo funcionan un circuito electrónico y los programas de una computadora, siendo también un pilar de la lógica proposicional.\\
+También la tabla de verdad tiene sus funciones mas importantes como :
+\begin{enumerate}
+ \item Representan relaciones lógicas.
+ \item Analizan todas las combinaciones posibles de valores.
+ \item Ayudan a deducir conclusiones lógicas.
+ \item Evalúan comportamiento de sistemas ante diferentes entradas.
+ \item Mejoran la eficiencia de algoritmos en programación.
+\end{enumerate}
+También para la correcta elaboración del programa referente a la tabla de verdad se utiliza lo que es el teorema booleano donde: 
+\begin{enumerate}
+    \item $x * 0 = 0 $
+    \item $x * 1 = x$
+    \item $x * x = x $
+    \item $x .* x´= 0$
+    \item $x + 0 = x$
+    \item $x + 1 = 1$
+    \item $x + x = x$
+    \item $x + x´= 0$
+\end{enumerate}
+
+Se hizo un código donde se tiene la opción de ingresar la cantidad de bits que uno quiera para eso debemos tener como ingresar la cantidad de bits que deseas para poder elaborar la tabla de valores.
+\subsubsection {Desarrollo de solución}
+\begin{enumerate}
+    \item Para poder ejecutar el problema el código del programa se realizo en el lenguaje de programación java.
+    \begin{javaCode}
+     import java.util.Scanner;
+    public class tabla_de_verdad {
+        public static void main(String[] args) {
+            Scanner valor=new Scanner (System.in);
+            System.out.println("ingresa el numero de bits");
+           int numVariables = valor.nextInt(); 
+          if(numVariables < 5 ){
+            generateTruthTable(numVariables);
+        }else{
+                System.out.println("Numero fuera de rango permitido :(");
+    }
+        }
+        public static void generateTruthTable(int numVariables) {
+            int numRows = (int) Math.pow(2, numVariables);      
+            for (int i = 0; i < numVariables; i++) {
+                System.out.print("Var" + (i + 1) + "\t");
+            }
+            System.out.println("Result");
+            for (int i = 0; i < numRows; i++) {
+                for (int j = numVariables - 1; j >= 0; j--) {
+                    int value = (i / (int) Math.pow(2, j)) % 2;
+                    System.out.print(value + "\t");
+                }
+                boolean result = calculateLogicOperation(i, numVariables);
+                System.out.println(result ? "1" : "0");
+            }
+        }
+        public static boolean calculateLogicOperation(int row, int numVariables) {
+    
+            boolean var1 = ((row >> 2) & 1) == 1;
+            boolean var2 = ((row >> 1) & 1) == 1;
+            boolean var3 = (row & 1) == 1;
+            return var1 && var2 && var3;
+        }
+    }
+    
+     \end{javaCode}
+\end{enumerate}
+Para obtener el resultado en expresión booleana primero se debé de modificar una fila como ejemplo en la columna a se modifican alas filas que serían del 1 al 8, porque ocho buenos porque  es la cantidad de filas que la columna la tiene.
+ Quiero modificar la fila solo pones el número que corresponda, vas a quieres modificar la fila 2 donde la primera es 0 se cambia a 1 eso varía donde puedes iniciar con 1 y cambia a 0 o viceversa, después de modificar los números que quieras modificar, ya después te dará la ecuación booleana
+ 
+ Ingrese el número de la fila que desea cambiar el resultado a 1 (1-8) o ingrese 0 para finalizar: 0
+Expresiones booleanas al finalizar:
+A' + B' + C'
+A' + B' + C
+A' + B + C
+A + B' + C
+A + B + C'
+A + B + C.
+
+Expresión booleana final: (A' + B' + C') + (A' + B' + C) + (A' + B + C) + (A + B' + C) + (A + B + C') + (A + B + C)
+\\
+
+\subsubsection {Depuración y pruebas}
+En la tabla 6 se muestra un resultado obtenido por el código.
+\begin{table}[!ht]
+\label{T:equipos}
+\begin{center}
+\begin{tabular}{| c | c | c | c | c |}
+\hline
+ \textbf{A} &  \textbf{B} & \textbf{B} & \textbf{RESULTADO}\\
+\hline
+ 0 & 0 & 0 & 1\\
+ 0 & 0 & 1 & 1 \\
+ 0 & 1 & 0 &  0\\
+ 0 & 1 & 1 & 1 \\
+ 1 & 0 & 0 & 0 \\
+ 1 & 0 & 1 & 1 \\
+ 1 & 1 & 0 & 1  \\
+ 1 & 1 & 1 & 1 \\
+\hline
+\end{tabular}
+\caption{Tabla de corridas.}
+\end{center}
+\end{table}\\
+
